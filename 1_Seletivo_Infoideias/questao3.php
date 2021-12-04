@@ -40,6 +40,7 @@ Ele se repete 4 vezes
     echo "<hr>";
 
     echo "<pre>";
+    echo "Ocorrencia: ";
       print_r(array_count_values($array));
     echo "</pre>";
 
