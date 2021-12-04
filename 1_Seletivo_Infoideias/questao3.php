@@ -11,37 +11,39 @@ Ele se repete 4 vezes
 
 
 <?php
-    $array = array(
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),
-         rand(1, 10),        
-    ); 
-    echo "<pre>";
-      var_dump($array);
-    echo "</pre>";
-    
-    echo "<hr>";
+    $array = array();
+    for ($i = 0; $i < 20; $i++) {
+        $array[$i] = rand(0,10); 
+    }
+
+
+    $quantidade = array_count_values($array);
+    arsort($quantidade); 
+    print_r($quantidade);
+
+    echo " <hr>  [ ";
+    for ($i = 0; $i < 20; $i++) {
+        echo $array[$i] . ',';
+    }
+    echo " ]</pre> <hr>";
+  
 
     echo "<pre>";
-    echo "Ocorrencia: ";
-      print_r(array_count_values($array));
+    echo "Ocorrencias: ";
+    print_r(array_count_values($array));
     echo "</pre>";
+
+
+    echo " <hr> <br/> O numero que mais repete é: ";
+    $valorAnterior = 0;
+    foreach ($quantidade as $key => $valor) {
+        if($valor < $valorAnterior) {
+            break;
+        } else {
+            echo "$key. <br> ";
+            echo "Ele se repete $valor vezes <br> <br>  <br> ";
+            $valorAnterior = $valor;
+        }
+}
 
     ?>
